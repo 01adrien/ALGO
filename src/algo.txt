@@ -1,0 +1,51 @@
+1️⃣ Parsing & Stack (5 problèmes)
+
+Balanced Parentheses – vérifier si (), {}, [] sont équilibrés. OK
+
+HTML Tag Matcher – vérifier si <div><p></p></div> est correct.
+
+Evaluate Expression – évaluer une expression arithmétique simple avec parenthèses.
+
+Reverse Polish Notation – calculer une expression postfixée.
+
+Minimum Add to Make Parentheses Valid – combien de parenthèses ajouter pour équilibrer.
+
+2️⃣ Strings (4 problèmes)
+
+Palindrome Check – "racecar" → True.
+
+Longest Substring Without Repeating Characters.
+
+String Compression – convertir "aaabb" → "a3b2".
+
+Anagram Check – "listen" vs "silent".
+
+3️⃣ Arrays & Lists (4 problèmes)
+
+Two Sum – trouver deux indices dont la somme = target.
+
+Move Zeroes – déplacer tous les zéros à la fin.
+
+Remove Duplicates – supprimer doublons en place.
+
+Rotate Array – faire une rotation droite de k positions.
+
+4️⃣ Hash Tables / Dictionaries (3 problèmes)
+
+First Non-Repeating Character – trouver premier caractère unique.
+
+Group Anagrams – regrouper mots qui sont des anagrammes.
+
+Count Frequencies – compter combien de fois chaque élément apparaît.
+
+5️⃣ Recursion & Backtracking (2 problèmes)
+
+Fibonacci / Factorial – classique récursif.
+
+Generate All Subsets / Power Set.
+
+6️⃣ Misc / Math (2 problèmes)
+
+Prime Check – vérifier si un nombre est premier.
+
+Matrix Path Sum – somme maximale d’un chemin de la première à la dernière ligne d’une matrice.
