@@ -1,0 +1,174 @@
+
+==============================
+Pourquoi 2^n apparaît souvent en algorithmique
+==============================
+
+1 Choix binaire par élément
+- Pour n éléments, si chaque élément a 2 options (inclure ou exclure),
+  le nombre total de combinaisons possibles = 2 * 2 * ... * 2 (n fois) = 2^n
+- Exemple pour 3 éléments {A, B, C} :
+  Option A: inclure ou non → 2 choix
+  Option B: inclure ou non → 2 choix
+  Option C: inclure ou non → 2 choix
+  Total = 2*2*2 = 8 combinaisons
+
+2 Correspondance binaire
+- Chaque sous-ensemble peut être représenté par un nombre binaire de n bits.
+  - Bit à 1 → élément inclus
+  - Bit à 0 → élément exclu
+- Pour n bits, il y a exactement 2^n nombres différents → 2^n sous-ensembles
+- Exemple pour n=3 :
+
+  Binaire | Sous-ensemble
+  ----------------------
+  000     | ∅
+  001     | {C}
+  010     | {B}
+  011     | {B, C}
+  100     | {A}
+  101     | {A, C}
+  110     | {A, B}
+  111     | {A, B, C}
+
+3 Règle générale
+- 2^n = nombre de combinaisons pour n choix binaires indépendants
+- C’est la logique derrière :
+  • Force brute / exhaustive search
+  • Génération de sous-ensembles / power set
+  • Algorithmes combinatoires
+
+
+
+Comportement asymptotique (Asymptotic Behavior)
+
+Le comportement asymptotique d’un algorithme décrit comment son temps d’exécution
+(ou sa consommation de mémoire) évolue lorsque la taille de l’entrée n devient très grande.
+
+
+
+
+n                lg n        n           n lg n        n^2          2^n                n!
+------------------------------------------------------------------------------------------------
+10               0.003 μs    0.01 μs     0.033 μs     0.1 μs        1 μs                3.63 ms
+20               0.004 μs    0.02 μs     0.086 μs     0.4 μs        1 ms                77.1 years
+30               0.005 μs    0.03 μs     0.147 μs     0.9 μs        1 sec               8.4 × 10^15 yrs
+40               0.005 μs    0.04 μs     0.213 μs     1.6 μs        18.3 min            —
+50               0.006 μs    0.05 μs     0.282 μs     2.5 μs        13 days             —
+100              0.007 μs    0.1 μs      0.644 μs     10 μs         4 × 10^13 yrs       —
+1,000            0.010 μs    1.00 μs     9.966 μs     1 ms          —                   —
+10,000           0.013 μs    10 μs       130 μs       100 ms        —                   —
+100,000          0.017 μs    0.10 ms     1.67 ms      10 sec        —                   —
+1,000,000        0.020 μs    1 ms        19.93 ms     16.7 min      —                   —
+10,000,000       0.023 μs    0.01 sec    0.23 sec     1.16 days     —                   —
+100,000,000      0.027 μs    0.10 sec    2.66 sec     115.7 days    —                   —
+1,000,000,000    0.030 μs    1 sec       29.90 sec    31.7 years    —                   —
+
+
+1 < log n < n < n log n < n² < n³ < 2ⁿ < n!
+
+
+Fonctions constantes, f(n) = 1
+Le temps d’exécution ne dépend pas de n.
+Exemples : addition de deux nombres, accès à un élément d’un tableau,
+f(n) = min(n, 100).
+
+
+Fonctions logarithmiques, f(n) = log n
+Le temps augmente très lentement quand n grandit.
+Exemple typique : recherche binaire.
+
+
+Fonctions linéaires, f(n) = n
+Le temps est proportionnel au nombre d’éléments.
+Exemples : parcourir un tableau, chercher un maximum, calculer une moyenne.
+
+
+Fonctions superlinéaires, f(n) = n log n
+Un peu plus lentes que linéaires.
+Exemples : tri rapide (Quicksort), tri fusion (Merge sort).
+
+
+Fonctions quadratiques, f(n) = n²
+Comparaison de toutes les paires d’éléments.
+Exemples : tri par insertion, tri par sélection.
+
+
+Fonctions cubiques, f(n) = n³
+Comparaison de tous les triplets d’éléments.
+Exemples : certains algorithmes de programmation dynamique.
+
+
+Fonctions exponentielles, f(n) = cⁿ (c > 1)
+Explosent très rapidement.
+Exemple : énumérer tous les sous-ensembles (2ⁿ).
+
+
+Fonctions factorielles, f(n) = n!
+Les plus coûteuses.
+Exemple : générer toutes les permutations possibles.
+
+
+
+PROPRIÉTÉS DES LOGARITHMES EN ALGORITHMIQUE
+
+Un logarithme est l’opération inverse de l’exponentiation. Dire que
+b^x = y
+revient à dire que
+x = log_b(y),
+où b est la base du logarithme.
+
+BASES IMPORTANTES
+
+Trois bases de logarithmes sont particulièrement importantes en algorithmique :
+
+Base 2 (log₂ ou lg)
+Appelée logarithme binaire. Elle apparaît naturellement dans les algorithmes basés sur la division par deux ou le doublement (recherche binaire, arbres, structures récursives). C’est la base la plus courante en analyse d’algorithmes.
+
+Base e (ln)
+Le logarithme naturel, où e ≈ 2,71828. Il est étroitement lié aux exponentielles et aux phénomènes continus. On a exp(ln x) = x.
+
+Base 10 (log)
+Le logarithme décimal, historiquement utilisé avec les règles à calcul et les tables de logarithmes. Il est aujourd’hui peu utilisé en algorithmique.
+
+PROPRIÉTÉS ESSENTIELLES
+
+Logarithme d’un produit
+log_a(xy) = log_a(x) + log_a(y)
+
+Cette propriété explique pourquoi les logarithmes transforment des multiplications en additions, ce qui simplifie énormément l’analyse des coûts algorithmiques.
+
+Changement de base
+log_a(b) = log_c(b) / log_c(a)
+
+Cette formule permet de convertir un logarithme d’une base à une autre facilement.
+
+CONSÉQUENCES EN ANALYSE D’ALGORITHMES
+
+La base du logarithme n’a pas d’impact sur la complexité asymptotique.
+Changer de base revient à multiplier par une constante, et les constantes disparaissent en notation Big-O.
+Ainsi, log₂ n, log₃ n et log₁₀₀ n sont tous en O(log n).
+
+Les logarithmes ralentissent fortement la croissance des fonctions.
+Le logarithme de n’importe quel polynôme est en O(log n) :
+log_a(n^b) = b · log_a(n)
+
+C’est ce qui rend des algorithmes comme la recherche binaire si puissants : doubler la taille du problème n’augmente le coût que très légèrement.
+
+APPARITION DES LOGARITHMES EN PRATIQUE
+
+Recherche binaire : O(log n)
+
+Algorithmes sur les arbres : hauteur logarithmique
+
+Analyse de sommes et de produits
+
+Factorielle :
+n! = ∏ᵢ₌₁ⁿ i
+log(n!) = ∑ᵢ₌₁ⁿ log i = Θ(n log n)
+
+Les logarithmes sont souvent la seule manière raisonnable de manipuler et d’analyser des quantités très grandes.
+
+IDÉE CLÉ À RETENIR
+
+Les logarithmes sont des outils qui « compressent » la taille des problèmes.
+En algorithmique, voir apparaître un log n est presque toujours une bonne nouvelle : cela signifie une croissance lente, maîtrisable et élégante.

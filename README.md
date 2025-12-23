@@ -4,7 +4,7 @@
 - [ ] **224.** Basic Calculator  
 - [ ] **227.** Basic Calculator II  
 - [ ] **1106.** Parsing A Boolean Expression  
-- [ ] **1047.** Remove All Adjacent Duplicates In String  
+- [X] **1047.** Remove All Adjacent Duplicates In String  
 
 ### 🔹 HashMap / Tables de symboles
 - [ ] **1.** Two Sum  
